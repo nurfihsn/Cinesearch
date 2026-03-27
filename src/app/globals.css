@@ -4,13 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-gray-950 text-gray-100 antialiased;
-  }
-}
-
-@layer components {
-  /* Gradient text utility for headings or logos */
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent;
+    @apply bg-[#E7E5E4] text-[#1E2938] antialiased selection:bg-[#006666] selection:text-[#E7E5E4];
   }
 }

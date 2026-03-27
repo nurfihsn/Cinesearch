@@ -1,18 +1,36 @@
-import { Inter } from 'next/font/google';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import './globals.css';
+import type { Metadata } from "next";
+import { Space_Mono } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] });
+// import { Header } from "@/components/layout/Header";
+// import { Footer } from "@/components/layout/Footer";
+import { siteConfig } from "@/config/site";
+import "./globals.css";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+export const metadata: Metadata = {
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={spaceMono.className}>
         <div className="flex min-h-screen flex-col">
-          <Header />
+          {/* <Header /> */}
           <main className="flex-1">{children}</main>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </body>
     </html>
