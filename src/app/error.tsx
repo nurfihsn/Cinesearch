@@ -28,9 +28,7 @@ export default function Error({ error, reset }: ErrorProps) {
       {/* Retry Button */}
       <button
         onClick={reset}
-        className="rounded-2xl bg-primary-600 px-6 py-3 text-white font-medium
-                   hover:bg-primary-700 transition-colors"
-      >
+        className="rounded-2xl bg-primary-600 px-6 py-3 text-white font-medium hover:bg-primary-700 transition-colors">
         Try Again
       </button>
     </div>
