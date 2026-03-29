@@ -1,4 +1,3 @@
-// TMDB Image
 export const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 
 export const POSTER_SIZES = {
@@ -15,20 +14,17 @@ export const BACKDROP_SIZES = {
   original: "original",
 } as const;
 
-// API Endpoints
 export const API_ENDPOINTS = {
   movies: "/api/movies",
   movieDetail: (id: number) => `/api/movies/${id}`,
 } as const;
 
-// Search Configuration
 export const SEARCH_CONFIG = {
   debounceMs: 500,
   minQueryLength: 2,
   resultsPerPage: 20,
 } as const;
 
-// TMDB Genre
 export const GENRE_MAP = {
   28: "Action",
   12: "Adventure",
