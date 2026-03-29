@@ -12,9 +12,12 @@ interface RouteContext {
   };
 }
 
-export async function GET(request: NextRequest, { params }: RouteContext) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> } 
+) {
+  let id: string = "unknown";
   try {
-    const movieId = parseInt(params.id, 10);
+    id = (await params).id;
+    const movieId = parseInt(id, 10);
 
     // Validasi ID
     if (isNaN(movieId) || movieId < 1) {
@@ -39,7 +42,7 @@ export async function GET(request: NextRequest, { params }: RouteContext) {
 
     return NextResponse.json({ data: movie }, { status: 200 });
   } catch (error) {
-    console.error(`[API] GET /movies/${params.id} error:`, error);
+    console.error(`[API] GET /movies/${id} error:`, error);
 
     const isError = error instanceof Error;
     const message = isError ? error.message : "Terjadi kesalahan pada server.";
